@@ -1,25 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Avatar} from "./components/Avatar";
+import {AvatarBorderTypeEnum, AvatarStyleTypeEnum, AvatarVariantEnum} from "./typings/avatar";
+// @ts-ignore
+import Photo from './photo.svg'
+import {User} from "./typings/iconsRow";
+import IconsRow from "./components/IconsRow";
+
+const users:User[] = [
+    {
+        photo: Photo
+    },
+    {
+        photo: Photo
+    },
+    {
+        photo: Photo
+    },
+    {
+        photo: Photo
+    },
+    {
+        photo: Photo
+    },
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <>
+         <Avatar
+             styleType={AvatarStyleTypeEnum.soft}
+             variant={AvatarVariantEnum.icon}
+             size='xxl'
+             src={Photo}
+             active={true}
+             borderType={AvatarBorderTypeEnum.circle}
+             initials={{
+                 firstName: 'Iulik',
+                 lastName: 'Nicula'
+             }}
+         />
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <IconsRow users={users} size="lg" />
+     </>
   );
 }
 
